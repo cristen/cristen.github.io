@@ -2,9 +2,10 @@
 layout: page
 title: Martins Jean-Marc | Data scientist
 ---
-Hello and welcome to my website. Let’s talk about Python !
 
-## Who am I ?
+# Who am I ?
+
+Hello and welcome to my website. Let’s talk about Python !
 
 My name is Martins Jean-Marc, I’m a web developer using Python everyday as my main language. I also have some skills in data science and big data concepts.
 

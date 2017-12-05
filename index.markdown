@@ -12,3 +12,5 @@ My name is Martins Jean-Marc, I’m a web developer using Python everyday as my 
 I’m pleased to learn everyday about science, data and much more.
 
 Information Technology is a wonderful ecosystem constantly evolving where you’ll learn something new everyday.
+
+I also like to discuss about guitar related stuff.

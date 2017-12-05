@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to generate a password using python"
-date: 2017-12-01 11:57:00 GMT+1
+date: 2017-12-01 12:30:07 GMT+1
 categories: Python
 ---
 As an aware web user, you probably know that it is vital to use a different password for all the websites you’re using.

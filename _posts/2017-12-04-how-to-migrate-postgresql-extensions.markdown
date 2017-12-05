@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to migrate your PostgreSQL database along with its extensions"
-date: 2017-12-04 15:48:00 GMT+1
+date: 2017-12-04 06:48:00 GMT+1
 categories: PostgreSQL
 ---
 

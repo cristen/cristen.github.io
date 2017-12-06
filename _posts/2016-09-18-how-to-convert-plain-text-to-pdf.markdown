@@ -25,20 +25,15 @@ iconv -f LATIN1 -t UTF8//TRANSLIT my_text_file.txt -o my_converted_text_file.txt
 
 The *-f* is the input encoding and the *-t* the output encoding. You can append the *“//TRANSLIT”* thingy so that characters that cannot be represented in the target will be approximated with a similar character.
 
-# Create the PostScript file
+# Create the PostScript file and convert it to PDF
 A postscript file is a file that is interpreted by printers, it’s the ancestor of the PDF format. Made simple, it describes everything about your document to the printer using a specific language called “PostScript”. Instead of sending it to the printer, we’re going to keep it on the computer and convert it later to PDF.
-{% highlight bash %}
-enscript -b "" my_converted_text_file.txt -o printable.ps
-{% endhighlight %}
-So here the *-b* option sets the header to an empty value (because the header is printed on every page).
 
-As for the rest, it is self explanatory.
-
-# PostScript to PDF
 Ghostscript is an interpreter for both PostScript and PDF. This last step converts the PostScript file to PDF using ghostscript.
+
 {% highlight bash %}
-ps2pdf printable.ps final.pdf
+enscript -b "" my_converted_text_file.txt -o - | ps2pdf - output.pdf
 {% endhighlight %}
+So here the *-b* option sets the header to an empty value (because the header is printed on every page). The *-o* outputs the file to the standard output (your screen) but we use a pipe “\|” to redirect this output to the **ps2pdf** command.
 
 And tadaaa, your file is ready !
 

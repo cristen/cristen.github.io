@@ -28,7 +28,7 @@ The *-f* is the input encoding and the *-t* the output encoding. You can append 
 # Create the PostScript file
 A postscript file is a file that is interpreted by printers, it’s the ancestor of the PDF format. Made simple, it describes everything about your document to the printer using a specific language called “PostScript”. Instead of sending it to the printer, we’re going to keep it on the computer and convert it later to PDF.
 {% highlight bash %}
-enscript -b "" -p printable.ps my_converted_text_file.txt
+enscript -b "" my_converted_text_file.txt -o printable.ps
 {% endhighlight %}
 So here the *-b* option sets the header to an empty value (because the header is printed on every page).
 

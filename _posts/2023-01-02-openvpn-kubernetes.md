@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenVPN behind Kubernetes
-date: 2023-08-23 16:24
+date: 2023-01-02 10:25
 category: DevOps
 tags: ["networking", "kubernetes", "k8s", "vpn"]
 ---

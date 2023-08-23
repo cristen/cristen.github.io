@@ -160,7 +160,7 @@ CREATE TABLE [MyTable]
 
 Azure SQL provides a way to calculate directly this type of matrix:
 
-![](/static/posts/grouped-set-matrix.png)
+![](/static/posts/2023/02/grouped-set-matrix.png)
 
 Here's our sample data:
 
@@ -228,7 +228,7 @@ ORDER BY IsAllColors, IsAllSuppliers;
 ```
 
 And the result, with rows highlighted according to the aforementioned matrix:
-![](/static/posts/grouped-sets-explained.png)
+![](/static/posts/2023/02/grouped-sets-explained.png)
 
 **IsAllColors = 1** represents the total products available for a specific supplier, no matter the color.
 **IsAllSuppliers = 1** represents the total products available for a specific color, no matter the supplier.
@@ -247,7 +247,7 @@ PRECEDING AND CURRENT ROW) AS RunningTotal
 FROM [Sales].[OrderLines] 
 WHERE [OrderID] = 37
 ```
-![](/static/posts/running-total.png)
+![](/static/posts/2023/02/running-total.png)
 
 But what if we want to compute this for all the orders? Of course we don't want to mix lines from different orders. To do so you need to use the `PARTITION` instruction, like so:
 
@@ -269,7 +269,7 @@ WHERE
  [OrderID] in (37, 39);
 ```
 
-![](/static/posts/window-function-partition.png)
+![](/static/posts/2023/02/window-function-partition.png)
 
 ## Bulk copy
 Calling the BCP utility is much faster, even on python. Exploit it whenever you can.
@@ -450,7 +450,7 @@ Azure SQL enables you to represent your models using the following non-relationa
 
 ### JSON
 
-![](/static/posts/openjson.png)
+![](/static/posts/2023/02/openjson.png)
 
 ```SQL
 CREATE PROCEDURE dbo.AddTagsToPost
@@ -625,7 +625,7 @@ ORDER BY Location.STDistance(@currentLocation) ASC;
 
 Spatial objects also have corresponding indexes to improve perforrmance:
 
-![Indexing spatial objects in 4x4 grid](/static/posts/spatial-index.png)
+![Indexing spatial objects in 4x4 grid](/static/posts/2023/02/spatial-index.png)
 
 You can specify the characteristics of the grid that will be created to index the spatial values.
 ```SQL
@@ -702,7 +702,7 @@ basic principles that will help you to understand how to use Spatial features.
 
 ## Rowstore VS ColumnStore format
 
-![](/static/posts/rowstore-columnstore.png)
+![](/static/posts/2023/02/rowstore-columnstore.png)
 *Rowstore format is optimal when a query needs to access all values from single or few selected rows (left), columnstore is optimal when the query accesses all values from single or few columns (right)*
 
 Azure SQL is smart enough to determine column segments not necessary for your query, using the following rules:
@@ -710,7 +710,7 @@ Azure SQL is smart enough to determine column segments not necessary for your qu
 - Column segments that belong to the columns that are not used in the query are ignored.
 - Column segments that don't have the values required in the query are ignored.
 
-![](/static/posts/column-store-indexing.png)
+![](/static/posts/2023/02/column-store-indexing.png)
 
 ### Clustered columnstore index
 To create a Clustered Columnstore Index (CCI):
@@ -738,7 +738,7 @@ With NCCI on top of classic tables, you are enabling Azure SQL to choose the opt
 - If you run some query that selects a single row or small set of rows, Azure SQL will use the underlying rowstore table. Database will leverage index seek or range scan operations that are the perfect fit for this scenario. 
 - If you run some report that scans the entire table and aggregates data, Azure SQL will read information from NCCI index, leveraging column segment elimination and batch mode execution to quickly return process all table.
 
-![](/static/posts/NCCI.png)
+![](/static/posts/2023/02/NCCI.png)
 *Classic rowstore table with additional NCCI index built on top of three columns*
 
 ```SQL
